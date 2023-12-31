@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net8.0-ios</TargetFramework>
         <Nullable>enable</Nullable>
@@ -48,18 +48,18 @@
         </NativeReference>
         -->
         <!-- below builds and runs on simulator, but not on physical device: -->
-        
+		<!--
         <NativeReference Include="FFmpeg-iOS/avutil.xcframework/ios-arm64_x86_64-simulator/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
+        -->
+        <!-- below builds and runs on target physical device, but not on simulator -->
         
-        <!-- below builds on target physical device, but does not deploay -->
-        <!--
         <NativeReference Include="FFmpeg-iOS/avutil.xcframework/ios-arm64/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
-        -->
+        
     </ItemGroup>
 </Project>

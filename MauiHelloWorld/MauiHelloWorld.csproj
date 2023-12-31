@@ -28,7 +28,6 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>de.digivod.test.ffmpeg.ios</ApplicationId>
-		<CodesignKey>iPhone Developer</CodesignKey>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -40,6 +39,16 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
+		<ProvisioningType>manual</ProvisioningType>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<CodesignProvision />
+		<!--
+		<CodesignKey>Apple Development: Created via API (M64Y6Z7HM7)</CodesignKey>
+		<CodesignProvision>Test Apps Wildcard Dev de.digivod.test...</CodesignProvision>
+		-->
 	</PropertyGroup>
 
 

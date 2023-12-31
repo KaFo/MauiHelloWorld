@@ -21,7 +21,7 @@ public static class MauiProgram
         
 #if __IOS__
     //iOS testing code
-    //AppleStaticCallTest.Test();
+    AppleStaticCallTest.Test();
 #endif
 
         return builder.Build();

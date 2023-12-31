@@ -4,10 +4,30 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <IsBindingProject>true</IsBindingProject>
+
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <NoWarn>1701;1702;IDE0055;CS8981;NU5123</NoWarn>
+
     </PropertyGroup>
 
     <ItemGroup>
         <ObjcBindingApiDefinition Include="ApiDefinition.cs"/>
         <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+        <NativeReference Include="lib_ios">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        <!--
+        <NativeReference Include="lib_xcframework/avutil.xcframework/ios-arm64_x86_64-maccatalyst/libavutil.a">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
     </ItemGroup>
 </Project>

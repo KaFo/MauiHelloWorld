@@ -19,12 +19,44 @@
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
-        <NativeReference Include="lib_ios">
+     <!--   <NativeReference Include="lib_ios">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference> -->
+        <!--
+        <NativeReference Include="lib_xcframework/avutil.xcframework/ios-arm64_x86_64-maccatalyst/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
+        -->
         <!--
-        <NativeReference Include="lib_xcframework/avutil.xcframework/ios-arm64_x86_64-maccatalyst/libavutil.a">
+        <NativeReference Include="bundle-apple-framework-ios/libavutil.framework">
+            <Kind>Framework</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
+        <!--
+        <NativeReference Include="bundle-apple-framework-ios/libavutil.framework/libavutil">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
+        <!--
+        <NativeReference Include="FFmpeg-iOS/avutil.xcframework">
+            <Kind>Framework</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
+        <!-- below builds and runs on simulator, but not on physical device: -->
+        
+        <NativeReference Include="FFmpeg-iOS/avutil.xcframework/ios-arm64_x86_64-simulator/libavutil.a">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        
+        <!-- below builds on target physical device, but does not deploay -->
+        <!--
+        <NativeReference Include="FFmpeg-iOS/avutil.xcframework/ios-arm64/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>

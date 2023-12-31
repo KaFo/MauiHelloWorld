@@ -57,6 +57,25 @@
             <SmartLink>true</SmartLink>
         </NativeReference>
         
+        <!-- attempt for x86_64 for simulator. not really working -->
+        <!--
+        <NativeReference Include="ffmpeg-kit-static-ios-x86_64/libavutil.a">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
+        <!-- attempt to have a xcframework that contains the static libraries for both simulator and arm64. but does not work somehow... -->
+        <NativeReference Include="ffmpeg-kit-static-ios.framework/libavutil.xcframework">
+            <Kind>Framework</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+
+        <!-- fat library but for some reason not accepted
+        <NativeReference Include="ffmpeg-kit-static-ios-fat/libavutil.a">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
         <!-- gives ld: framework not found ios-arm64_x86_64-simulator
             clang: error: linker command failed with exit code 1 (use -v to see invocation)
         -->

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiHelloWorld", "MauiHelloWorld\MauiHelloWorld.csproj", "{4F1A536F-6A50-4872-BDD0-4677F3E2B861}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpeg.Maui.iOS", "FFmpeg.Maui.iOS\FFmpeg.Maui.iOS.csproj", "{0E8F1CBC-586A-4BED-84F5-CEFE828AD9F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{4F1A536F-6A50-4872-BDD0-4677F3E2B861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F1A536F-6A50-4872-BDD0-4677F3E2B861}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F1A536F-6A50-4872-BDD0-4677F3E2B861}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0E8F1CBC-586A-4BED-84F5-CEFE828AD9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8F1CBC-586A-4BED-84F5-CEFE828AD9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8F1CBC-586A-4BED-84F5-CEFE828AD9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8F1CBC-586A-4BED-84F5-CEFE828AD9F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

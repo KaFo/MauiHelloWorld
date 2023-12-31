@@ -1,0 +1,3 @@
+namespace FFmpeg.Maui.iOS
+{
+}

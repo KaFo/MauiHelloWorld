@@ -17,6 +17,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+        
+#if __IOS__
+    //iOS testing code
+#endif
 
         return builder.Build();
     }

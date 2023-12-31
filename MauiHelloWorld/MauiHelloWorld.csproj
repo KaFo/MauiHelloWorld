@@ -79,5 +79,15 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
-	
+
+	<!-- hack required because static libraries dynamically link libbz2... But crashes physical device at the moment! -->
+	<!--
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<NativeReference Include="/System/Volumes/Data/Library/Developer/CoreSimulator/Volumes/iOS_20E247/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 16.4.simruntime/Contents/Resources/RuntimeRoot/usr/lib/libbz2.dylib">
+			<Kind>Dynamic</Kind>
+			<SmartLink>true</SmartLink>
+		</NativeReference>
+	</ItemGroup>
+	-->
+
 </Project>

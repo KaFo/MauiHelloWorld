@@ -24,10 +24,11 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MauiHelloWorld</ApplicationTitle>
+		<ApplicationTitle>Maui Hello FFmpeg</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.mauihelloworld</ApplicationId>
+		<ApplicationId>de.digivod.test.ffmpeg.ios</ApplicationId>
+		<CodesignKey>iPhone Developer</CodesignKey>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -40,6 +41,7 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
+
 
 	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
 		<ProjectReference Include="..\FFmpeg.Maui.iOS\FFmpeg.Maui.iOS.csproj" />

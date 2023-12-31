@@ -19,16 +19,25 @@
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
-     <!--   <NativeReference Include="lib_ios">
+        <!-- gives error: ld: in /Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a(cpu.o), 
+        building for iOS Simulator, but linking in object file built for iOS, file 
+        '/Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a'
+         for architecture arm64
+         clang: error: linker command failed with exit code 1 (use -v to see invocation)
+        -->
+        <!--
+       <NativeReference Include="lib_ios/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
-        </NativeReference> -->
+        </NativeReference>
+        -->
         <!--
         <NativeReference Include="lib_xcframework/avutil.xcframework/ios-arm64_x86_64-maccatalyst/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
         -->
+        <!-- gives error: building for iOS Simulator, but linking in dylib built for iOS,  -->
         <!--
         <NativeReference Include="bundle-apple-framework-ios/libavutil.framework">
             <Kind>Framework</Kind>
@@ -40,6 +49,16 @@
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
+        -->
+        <!-- ffmpeg-kit 5.1 but changed from dynamic to static in ffmpeg.sh (remove both disable-static and enable-dynamic) -->
+        <!-- works on physical but not on simulator -->
+        <NativeReference Include="ffmpeg-kit-static-ios-arm64/libavutil.a">
+            <Kind>Static</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        
+        <!-- gives ld: framework not found ios-arm64_x86_64-simulator
+            clang: error: linker command failed with exit code 1 (use -v to see invocation)
         -->
         <!--
         <NativeReference Include="FFmpeg-iOS/avutil.xcframework">
@@ -55,11 +74,11 @@
         </NativeReference>
         -->
         <!-- below builds and runs on target physical device, but not on simulator -->
-        
+        <!--
         <NativeReference Include="FFmpeg-iOS/avutil.xcframework/ios-arm64/libavutil.a">
             <Kind>Static</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
-        
+        -->
     </ItemGroup>
 </Project>

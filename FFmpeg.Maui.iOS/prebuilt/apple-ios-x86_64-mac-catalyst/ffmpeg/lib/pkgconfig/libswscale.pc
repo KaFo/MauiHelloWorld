@@ -5,9 +5,9 @@ includedir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-x86_64-mac
 
 Name: libswscale
 Description: FFmpeg image rescaling library
-Version: 7.1.100
+Version: 6.8.112
 Requires: 
-Requires.private: libavutil >= 58.2.100
+Requires.private: libavutil >= 57.39.101
 Conflicts:
 Libs: -L${libdir}  -lswscale 
 Libs.private: -lm

@@ -5,7 +5,7 @@ includedir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64e/ffm
 
 Name: libavutil
 Description: FFmpeg utility library
-Version: 58.2.100
+Version: 57.39.101
 Requires: 
 Requires.private: 
 Conflicts:

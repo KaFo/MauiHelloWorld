@@ -5,10 +5,10 @@ includedir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64e/ffm
 
 Name: libavformat
 Description: FFmpeg container format library
-Version: 60.3.100
+Version: 59.34.101
 Requires: 
-Requires.private: libavcodec >= 60.3.100, libswresample >= 4.10.100, libavutil >= 58.2.100
+Requires.private: libavcodec >= 59.51.100, libswresample >= 4.9.100, libavutil >= 57.39.101
 Conflicts:
 Libs: -L${libdir}  -lavformat 
-Libs.private: -lm -lbz2 -L/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/usr/lib -lz
+Libs.private: -lm
 Cflags: -I${includedir}

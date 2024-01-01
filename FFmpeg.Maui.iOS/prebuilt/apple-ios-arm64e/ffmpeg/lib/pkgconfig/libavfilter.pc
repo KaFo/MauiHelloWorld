@@ -5,9 +5,9 @@ includedir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64e/ffm
 
 Name: libavfilter
 Description: FFmpeg audio/video filtering library
-Version: 9.3.100
+Version: 8.49.101
 Requires: 
-Requires.private: libswscale >= 7.1.100, libavformat >= 60.3.100, libavcodec >= 60.3.100, libswresample >= 4.10.100, libavutil >= 58.2.100
+Requires.private: libswscale >= 6.8.112, libavformat >= 59.34.101, libavcodec >= 59.51.100, libswresample >= 4.9.100, libavutil >= 57.39.101
 Conflicts:
 Libs: -L${libdir}  -lavfilter 
 Libs.private: -pthread -lm

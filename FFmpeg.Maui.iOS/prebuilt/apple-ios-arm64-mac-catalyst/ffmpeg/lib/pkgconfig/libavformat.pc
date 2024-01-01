@@ -1,0 +1,14 @@
+prefix=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg
+exec_prefix=${prefix}
+libdir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib
+includedir=/Users/karsten/RiderProjects/ffmpeg-kit/prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 60.3.100
+Requires: 
+Requires.private: libavcodec >= 60.3.100, libswresample >= 4.10.100, libavutil >= 58.2.100
+Conflicts:
+Libs: -L${libdir}  -lavformat 
+Libs.private: -lm -lbz2 -L/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/lib -lz
+Cflags: -I${includedir}

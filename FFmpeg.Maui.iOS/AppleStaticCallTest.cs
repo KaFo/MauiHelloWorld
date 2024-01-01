@@ -1,4 +1,6 @@
 using System.Runtime.InteropServices;
+using FFmpeg.AutoGen.Abstractions;
+using FFmpeg.AutoGen.Bindings.StaticallyLinked;
 using ObjCRuntime;
 //using FFmpeg.AutoGen.Bindings.StaticallyLinked;
 
@@ -17,9 +19,13 @@ public static class AppleStaticCallTest
     {
         uint v = 0;
         v = avutil_version();
+        StaticallyLinkedBindings.Initialize();
+        var v2 = ffmpeg.avcodec_version();
+        
 #pragma warning disable IDE0059
   //      var v1 = StaticallyLinkedBindings.avutil_version();
-    //    var v2 = StaticallyLinkedBindings.avformat_version();
+  
+        //var v2 = StaticallyLinkedBindings.avformat_version();
     //   return v + v2 - v2;
 
     return v;

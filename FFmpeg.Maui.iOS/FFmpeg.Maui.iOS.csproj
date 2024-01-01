@@ -19,6 +19,15 @@
         <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
     </ItemGroup>
 
+
+    <ItemGroup>
+        <PackageReference Include="FFmpeg.AutoGen.Abstractions" Version="5.1.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- <None Remove="prebuilt\" /> -->
+    </ItemGroup>
+
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
         <!-- gives error: ld: in /Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a(cpu.o), 
         building for iOS Simulator, but linking in object file built for iOS, file 
@@ -161,17 +170,5 @@
 
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FFmpeg.AutoGen.Abstractions" Version="5.1.1.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="prebuilt\" />
-      <None Remove="ffmpeg-kit-static-ios-fat\ios-arm64_x86_64-simulator\libavutil.a" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="ffmpeg-kit-static-ios-fat\ios-arm64_x86_64-simulator\" />
-    </ItemGroup>
 
 </Project>

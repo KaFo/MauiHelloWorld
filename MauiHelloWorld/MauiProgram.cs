@@ -1,4 +1,9 @@
-﻿using Media.FFmpeg.AppleStatic;
+﻿#if __IOS__
+using Media.FFmpeg.AppleStatic;
+#elif __MACCATALYST__    
+using Media.FFmpeg.AppleStatic;
+#endif
+
 using Microsoft.Extensions.Logging;
 
 namespace MauiHelloWorld;
@@ -21,6 +26,8 @@ public static class MauiProgram
         
 #if __IOS__
     //iOS testing code
+    AppleStaticCallTest.Test();
+#elif __MACCATALYST__    
     AppleStaticCallTest.Test();
 #endif
 

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net8.0-ios</TargetFramework>
+        <TargetFrameworks>net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <IsBindingProject>true</IsBindingProject>
@@ -139,19 +139,19 @@
         -->
 
         <!-- ffmpeg-kit prebuild folder after building ffmpeg-kit ios.sh - -no-framework and removing disable-static from ffmpeg.sh -->
-      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib//libavutil.a">
+      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libavutil.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
-      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib//libavcodec.a">
+      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libavcodec.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
-      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib//libavfilter.a">
+      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libavfilter.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
-      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib//libswscale.a">
+      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libswscale.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
@@ -163,12 +163,43 @@
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
-      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib//libswresample.a">
+      <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libswresample.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
 
     </ItemGroup>
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
 
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavutil.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavcodec.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavfilter.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libswscale.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavdevice.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavformat.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+    <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libswresample.a">
+        <Kind>Static</Kind>
+        <SmartLink>true</SmartLink>
+    </NativeReference>
+
+</ItemGroup>
 
 </Project>

@@ -9,10 +9,9 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-#if !NO_AUTOGEN
-        var intVersion = ffmpeg.avcodec_version();
+        //var intVersion = ffmpeg.avcodec_version();
+        var intVersion = Media.FFmpeg.AppleStatic.AppleStaticCallTest.avutil_version();
         LblHello.Text = "Hello FFmpeg " + ToVersion(intVersion);
-#endif        
     }
 
     private void OnCounterClicked(object sender, EventArgs e)

@@ -50,13 +50,10 @@
             <SmartLink>true</SmartLink>
         </NativeReference>
         -->
-        <!-- gives error: building for iOS Simulator, but linking in dylib built for iOS,  -->
-        <!--
-        <NativeReference Include="bundle-apple-framework-ios/libavutil.framework">
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavutil.framework">
             <Kind>Framework</Kind>
             <SmartLink>true</SmartLink>
         </NativeReference>
-        -->
         <!--
         <NativeReference Include="bundle-apple-framework-ios/libavutil.framework/libavutil">
             <Kind>Static</Kind>
@@ -142,6 +139,7 @@
         -->
 
         <!-- ffmpeg-kit prebuild folder after building ffmpeg-kit ios.sh - -no-framework and removing disable-static from ffmpeg.sh -->
+        <!--
       <NativeReference Include="prebuilt/apple-ios-arm64-simulator/ffmpeg/lib/libavutil.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
@@ -170,10 +168,16 @@
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
       </NativeReference>
-
+-->
     </ItemGroup>
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
-
+        <!-- ffmpeg-kit does not yet build framework for catalyst for us. We use .a directly there.
+        <NativeReference Include="bundle-apple-framework-ios-catalyst/libavutil.framework">
+            <Kind>Framework</Kind>
+            <SmartLink>true</SmartLink>
+        </NativeReference>
+        -->
+        
     <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavutil.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>

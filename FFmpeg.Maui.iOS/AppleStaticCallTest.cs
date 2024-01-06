@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using FFmpeg.AutoGen.Abstractions;
 #if !NO_AUTOGEN
-//using FFmpeg.AutoGen.Bindings.StaticallyLinked;
+using FFmpeg.AutoGen.Bindings.StaticallyLinked;
 #endif
 using ObjCRuntime;
 //using FFmpeg.AutoGen.Bindings.StaticallyLinked;

@@ -14,7 +14,7 @@
 
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DefineConstants>TRACE;NO_AUTOGEN</DefineConstants>
+      <!-- <DefineConstants>TRACE;NO_AUTOGEN</DefineConstants> -->
     </PropertyGroup>
 
     <ItemGroup>
@@ -178,6 +178,7 @@
 -->
     </ItemGroup>
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
+        <!--
         <NativeReference Include="bundle-apple-framework-ios/libavutil.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libavcodec.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libavfilter.framework" Kind="Framework" SmartLink="True" />
@@ -185,8 +186,7 @@
         <NativeReference Include="bundle-apple-framework-ios/libavdevice.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libavformat.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libswresample.framework" Kind="Framework" SmartLink="True" />
-       
-        <!-- old direct .a bindings.
+       -->
     <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavutil.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
@@ -215,7 +215,7 @@
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
     </NativeReference>
--->
+
 </ItemGroup>
 
 </Project>

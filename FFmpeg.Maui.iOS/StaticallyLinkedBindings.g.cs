@@ -1,4 +1,4 @@
-#if ALL_BINDINGS
+#if !NO_AUTOGEN
 using System;
 using System.Runtime.InteropServices;
 using FFmpeg.AutoGen.Abstractions;

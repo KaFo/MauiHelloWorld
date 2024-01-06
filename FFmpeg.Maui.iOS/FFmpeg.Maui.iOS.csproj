@@ -13,6 +13,9 @@
         <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
 
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DefineConstants>TRACE;NO_AUTOGEN</DefineConstants>
+    </PropertyGroup>
 
     <ItemGroup>
         <ObjcBindingApiDefinition Include="ApiDefinition.cs"/>

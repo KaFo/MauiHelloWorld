@@ -1,3 +1,4 @@
+#if ALL_BINDINGS
 using System;
 using System.Runtime.InteropServices;
 using FFmpeg.AutoGen.Abstractions;
@@ -5779,3 +5780,4 @@ public static unsafe partial class StaticallyLinkedBindings
         #pragma  warning restore 612,618
     }
 }
+#endif

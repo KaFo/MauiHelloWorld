@@ -31,7 +31,18 @@
         <!-- <None Remove="prebuilt\" /> -->
     </ItemGroup>
 
+    <ItemGroup>
+    </ItemGroup>
+    
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavutil.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavcodec.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavfilter.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libswscale.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavdevice.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libavformat.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios-simulator/libswresample.framework" Kind="Framework" SmartLink="True" />
+    
         <!-- gives error: ld: in /Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a(cpu.o), 
         building for iOS Simulator, but linking in object file built for iOS, file 
         '/Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a'
@@ -50,10 +61,6 @@
             <SmartLink>true</SmartLink>
         </NativeReference>
         -->
-        <NativeReference Include="bundle-apple-framework-ios-simulator/libavutil.framework">
-            <Kind>Framework</Kind>
-            <SmartLink>true</SmartLink>
-        </NativeReference>
         <!--
         <NativeReference Include="bundle-apple-framework-ios/libavutil.framework/libavutil">
             <Kind>Static</Kind>
@@ -171,13 +178,15 @@
 -->
     </ItemGroup>
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
-        <!-- ffmpeg-kit does not yet build framework for catalyst for us. We use .a directly there.
-        <NativeReference Include="bundle-apple-framework-ios-catalyst/libavutil.framework">
-            <Kind>Framework</Kind>
-            <SmartLink>true</SmartLink>
-        </NativeReference>
-        -->
-        
+        <NativeReference Include="bundle-apple-framework-ios/libavutil.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libavcodec.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libavfilter.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libswscale.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libavdevice.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libavformat.framework" Kind="Framework" SmartLink="True" />
+        <NativeReference Include="bundle-apple-framework-ios/libswresample.framework" Kind="Framework" SmartLink="True" />
+       
+        <!-- old direct .a bindings.
     <NativeReference Include="prebuilt/apple-ios-arm64-mac-catalyst/ffmpeg/lib/libavutil.a">
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
@@ -206,7 +215,7 @@
         <Kind>Static</Kind>
         <SmartLink>true</SmartLink>
     </NativeReference>
-
+-->
 </ItemGroup>
 
 </Project>

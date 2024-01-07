@@ -5,12 +5,14 @@
         <ImplicitUsings>true</ImplicitUsings>
         <IsBindingProject>true</IsBindingProject>
 
+        <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <NoWarn>1701;1702;IDE0055;CS8981;NU5123</NoWarn>
-        <!-- <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier> -->
+        <!-- spectacular: building for ios-arm64 and iossimulator-arm64 at the same time is not possible. shame on apple -->
+        <!-- <RuntimeIdentifiers Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">ios-arm64;iossimulator-arm64</RuntimeIdentifiers>-->
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <!-- <DefineConstants>TRACE;NO_AUTOGEN</DefineConstants> -->
@@ -25,8 +27,9 @@
     <ItemGroup>
         <PackageReference Include="FFmpeg.AutoGen.Abstractions" Version="5.1.1.1" />
     </ItemGroup>
-
+    
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+        <!-- references for simulator are default: -->
         <NativeReference Include="bundle-apple-framework-ios-simulator/libavutil.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios-simulator/libavcodec.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios-simulator/libavfilter.framework" Kind="Framework" SmartLink="True" />
@@ -34,6 +37,7 @@
         <NativeReference Include="bundle-apple-framework-ios-simulator/libavdevice.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios-simulator/libavformat.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios-simulator/libswresample.framework" Kind="Framework" SmartLink="True" />
+        <!-- references for physical device -->
         <!--
         <NativeReference Include="bundle-apple-framework-ios/libavutil.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libavcodec.framework" Kind="Framework" SmartLink="True" />
@@ -42,7 +46,8 @@
         <NativeReference Include="bundle-apple-framework-ios/libavdevice.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libavformat.framework" Kind="Framework" SmartLink="True" />
         <NativeReference Include="bundle-apple-framework-ios/libswresample.framework" Kind="Framework" SmartLink="True" />
-    -->
+        -->
+    
         <!-- gives error: ld: in /Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a(cpu.o), 
         building for iOS Simulator, but linking in object file built for iOS, file 
         '/Users/karsten/RiderProjects/MauiHelloWorld/FFmpeg.Maui.iOS/bin/Debug/net8.0-ios/FFmpeg.Maui.iOS.resources/libavutil.a'
